@@ -26,16 +26,98 @@ $marija.eric@matf.bg.ac.rs$}
 
 
 \begin{abstract}
-Projekat na kome je izvrshena analiza je biblioteka za detekciju lica, napisana u C++. Biblioteka je otvorenog koda i mozhe se pronac1i na narednom \href{https://github.com/ShiqiYu/libfacedetection}{linku}. 
+Projekat na kome je izvrshena analiza je biblioteka za detekciju lica, napisana u $C++$. Biblioteka je otvorenog koda i mozhe se pronac1i na narednom \href{https://github.com/ShiqiYu/libfacedetection}{linku}. 
 
 \end{abstract}
 \tableofcontents
 \newpage
 
-\section{Kratak opis projekta}
 \section{Verifikacija softvera}
 \subsection{Dinamichka analiza}
-\subsection{$Gcov$}
+\subsubsection{$Gcov$}
+
+Prikazana je pokrivenost za ispravno pokretanja primera upotrebe.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/gcov/gcovCoverageDetect.png}
+    \caption{Pokrivenost koda }
+    \label{covd:gcov}
+\end{figure}
+
+%Vidimo da je velika pokrivenost svih datoteka, osim 9....
+%U njima se nalaze pokretanja vezana za math i slichne biblioteke, i %sasvim je u redu da pokrivenost ne bude velika...
+
+%Detaljnija pokrivenost za pokrivenost biblioteke, bas pokriveno, %koriste se sve funkcije definisane u biblioteci.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/gcov/gcovDI.png}
+    \caption{Pokrivenost koda pokretanjem detect image}
+    \label{di:gcov}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/gcov/gcovDC.png}
+    \caption{Pokrivenost koda detect camera}
+    \label{dc:gcov}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/gcov/gcovSRC.png}
+    \caption{Pokrivenost koda biblioteke }
+    \label{src:gcov}
+\end{figure}
+
+%Vidimo da je biblioteka super, ima implementirane samo elemnte koji su joj bitni.
+\subsection{Profajliranje}
+Sa obzirom na to, da se u kodu koristi dosta dinamichka alokacija memorije, cilj je da detaljnije ispitamo stanje na heapu i steku, korishcenjem profajlera. Pokretanje se vrshi sa istim ulazom.
+\subsubsection{$Memcheck$}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/memcheck/memcheck-detect-image.png}
+    \caption{Deo izlaza alata $Memcheck$ nad $detect-image.$}
+    \label{di:mcheck}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/memcheck/memcheck_detect_camera.png}
+    \caption{Deo izlaza alata $Memcheck$ nad $detect-camera.$}
+    \label{dc:mcheck}
+\end{figure}
+\subsubsection{$Massif$}
+
+Za vizuelizaciju rezultata korish\-c1en $massif_visualizer$, koji je preuzet sa \href{https://github.com/KDE/massif-visualizer}{$https://github.com/KDE/massif-visualizer$}, gde se mozhe pronac1i detaljno uputstvo za instaliranje i pokretanje.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/massif/massif_detect_image_memory.png}
+    \caption{}
+    \label{dim:massif}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/massif/massif_detect_image_allocators.png}
+    \caption{}
+    \label{dima:massif}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/massif/massif_detect_camera_memory1.png}
+    \caption{}
+    \label{dcm:massif}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{img/massif/massif_detect_camera_allocators.png}
+    \caption{}
+    \label{dcma:massif}
+\end{figure}
+
+
 \subsection{Statichka analiza}
 \subsubsection{$CppCheck$}
 $CppCheck$ je alat za statichku analizu $C/C++$ koda, koji pruzha jedinstvenu analizu za detekciju greshaka, sa fokusom na nedefinisano ponashanje i sa opasnim konstruktima koda. Analiza dobijena $CppCheck$ nije ni saglasna, niti je potpuna. Dakle, mozhe imati i lazhno pozitivne rezultate, kao i lazhno negativne.
@@ -89,7 +171,7 @@ Prikaz pokretanja u alata: \ref{msg:cppcheck}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=12cm]{img/cppCheckTerminal.png}
+    \includegraphics[width=12cm]{img/cppCheck/cppCheckTerminal.png}
     \caption{Poruka o gresh\-ci u $cppCheck$}
     \label{msg:cppcheck}
 \end{figure}
@@ -99,7 +181,7 @@ Na slici \ref{stats:cppcheck} se nalazi statistika analize.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=12cm]{img/cppCheckStats.png}
+    \includegraphics[width=12cm]{img/cppCheck/cppCheckStats.png}
     \caption{Statistika analize alata $cppcheck$}
     \label{stats:cppcheck}
 \end{figure}
@@ -108,7 +190,7 @@ Na osnovu statistike vidimo da je pronadjena jedna poruka tipa \textit{greshka},
 Detaljnije o porukama se mozhe videti na slici \ref{html:cppcheck}.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=12cm]{img/cppChechHtmlReport.png}
+    \includegraphics[width=12cm]{img/cppCheck/cppChechHtmlReport.png}
     \caption{Izveshtaj alata $cppcheck$}
     \label{html:cppcheck}
 \end{figure}
@@ -148,28 +230,49 @@ nakon chega se otvara prozor prikazan na slici \ref{qt:cppcheck}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=10cm]{img/CppCheckQt.png}
+    \includegraphics[width=10cm]{img/cppCheck/cppCheckQt.png}
     \caption{Pokretanje alata u okviru $QtCreatora$}
     \label{qt:cppcheck}
 \end{figure}
 
 Selektovanjem polja $inconclusive$ $errors$ se prijavljuju i lazhna upozorenja ($false$ $positive$). 
 
-\section{Pokretanje skripti}
+\section{Zakljuchak}
+
+\section{Pokretanje skripti za reprodukovanje rezultata}
 \fontencoding{T1}\selectfont
 
+
 \begin{minted}{shell-session}
-git clone ...
+git clone https://github.com/MATF-Software-Verification/2023_Analysis_libfacedetection
+cd 2023_Analysis_libfacedetection/libfacedetection
+git submodule init
+git submodule update
 \end{minted}
 
 \subsection*{$CppCheck$}
 \begin{minted}{shell-session}
-cd 2023....
-cd libfacedetection
-git submodule update
 cd ../CppCheckReport
 bash runCppCheck.sh
 \end{minted}
+
+\subsection*{$Prevodjenje biblioteke$}
+
+\begin{minted}{shell-session}
+cd libfacedetection
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release -DDEMO=OFF
+cmake --build . --config Release
+cmake --build . --config Release --target install
+\end{minted}
+
+\subsection*{$Gcov$}
+\begin{minted}{shell-session}
+cd ../CppCheckReport
+bash run_gcov.sh
+\end{minted}
+
 \fontencoding{OT2}\selectfont
 
 \bibliographystyle{plain}
