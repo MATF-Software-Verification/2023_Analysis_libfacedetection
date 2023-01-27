@@ -1,0 +1,911 @@
+desc: --stacks=yes --massif-out-file=massif-detect-image.txt
+cmd: ./detect-image ../TestSamples/image-test.jpg
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=762864236
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2256
+heap_tree=peak
+n5: 118142853 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 106693376 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 106693376 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 106463760 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n1: 70975752 0x1108A8: setDataFrom3x3S2P1to1x1S1P0FromImage(unsigned char const*, int, int, int, int, int) (facedetectcnn.cpp:94)
+     n1: 70975752 0x1196EE: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:83)
+      n1: 70975752 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 70975752 0x10DB04: main (detect-image.cpp:84)
+    n1: 35488008 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n1: 35488008 0x119714: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:88)
+      n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n0: 1770869 in 507 places, all below massif's threshold (1.00%)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+#-----------
+snapshot=2
+#-----------
+time=1438123851
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=2315822134
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=3121962910
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=4114986455
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=5188512720
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=6584096859
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2136
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=7653635606
+mem_heap_B=118142853
+mem_heap_extra_B=969707
+mem_stacks_B=2136
+heap_tree=detailed
+n5: 118142853 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 106693376 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 106693376 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 106463760 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n1: 70975752 0x1108A8: setDataFrom3x3S2P1to1x1S1P0FromImage(unsigned char const*, int, int, int, int, int) (facedetectcnn.cpp:94)
+     n1: 70975752 0x1196EE: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:83)
+      n1: 70975752 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 70975752 0x10DB04: main (detect-image.cpp:84)
+    n1: 35488008 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n1: 35488008 0x119714: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:88)
+      n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n0: 1770869 in 507 places, all below massif's threshold (1.00%)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+#-----------
+snapshot=9
+#-----------
+time=9088840879
+mem_heap_B=82655109
+mem_heap_extra_B=969707
+mem_stacks_B=2248
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=10488384372
+mem_heap_B=82655109
+mem_heap_extra_B=969707
+mem_stacks_B=2248
+heap_tree=detailed
+n5: 82655109 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 71205632 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 71205632 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 70976016 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n2: 70976016 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n1: 35488008 0x1117E8: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n1: 35488008 0x119766: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:92)
+       n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+     n1: 35488008 0x119714: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:88)
+      n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n0: 1770869 in 507 places, all below massif's threshold (1.00%)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+#-----------
+snapshot=11
+#-----------
+time=11406835044
+mem_heap_B=82655109
+mem_heap_extra_B=969707
+mem_stacks_B=2248
+heap_tree=detailed
+n5: 82655109 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 71205632 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 71205632 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 70976016 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n2: 70976016 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n1: 35488008 0x1117E8: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n1: 35488008 0x119766: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:92)
+       n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+     n1: 35488008 0x119714: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:88)
+      n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n0: 1770869 in 507 places, all below massif's threshold (1.00%)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+#-----------
+snapshot=12
+#-----------
+time=12587702532
+mem_heap_B=118143117
+mem_heap_extra_B=973483
+mem_stacks_B=2264
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=13506155895
+mem_heap_B=118143117
+mem_heap_extra_B=973483
+mem_stacks_B=2264
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=14555816789
+mem_heap_B=118143117
+mem_heap_extra_B=973483
+mem_stacks_B=2264
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=15853674410
+mem_heap_B=29423493
+mem_heap_extra_B=969707
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=16772125734
+mem_heap_B=29423493
+mem_heap_extra_B=969707
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=17734519019
+mem_heap_B=38295693
+mem_heap_extra_B=973483
+mem_stacks_B=2288
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=18986962372
+mem_heap_B=47167629
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=19845783771
+mem_heap_B=64911765
+mem_heap_extra_B=977259
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=21352770520
+mem_heap_B=64911765
+mem_heap_extra_B=977259
+mem_stacks_B=2288
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=22426299601
+mem_heap_B=47167365
+mem_heap_extra_B=969707
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=23929240393
+mem_heap_B=47167365
+mem_heap_extra_B=969707
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=25002769312
+mem_heap_B=64911501
+mem_heap_extra_B=973483
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=25861590641
+mem_heap_B=64911501
+mem_heap_extra_B=973483
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=26935119749
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=detailed
+n5: 82655373 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 71205896 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 71205896 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 70976280 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 70976280 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n3: 35488272 0x111800: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n2: 17744136 0x1118A5: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:520)
+       n1: 17744136 0x11986B: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:106)
+        n1: 17744136 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 17744136 0x10DB04: main (detect-image.cpp:84)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n1: 17744136 0x1118C4: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 17744136 0x119807: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:101)
+        n1: 17744136 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 17744136 0x10DB04: main (detect-image.cpp:84)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 35488008 0x1117E8: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n2: 35488008 0x1118C4: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 35488008 0x11986B: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:106)
+        n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n0: 1770869 in 507 places, all below massif's threshold (1.00%)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+#-----------
+snapshot=26
+#-----------
+time=28223354375
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=29261094268
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=detailed
+n5: 82655373 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 71205896 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 71205896 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 70976280 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 70976280 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n3: 35488272 0x111800: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n2: 17744136 0x1118A5: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:520)
+       n1: 17744136 0x11986B: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:106)
+        n1: 17744136 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 17744136 0x10DB04: main (detect-image.cpp:84)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n1: 17744136 0x1118C4: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 17744136 0x119807: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:101)
+        n1: 17744136 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 17744136 0x10DB04: main (detect-image.cpp:84)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 35488008 0x1117E8: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n2: 35488008 0x1118C4: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 35488008 0x11986B: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:106)
+        n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n0: 1770869 in 507 places, all below massif's threshold (1.00%)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+#-----------
+snapshot=28
+#-----------
+time=30048337983
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=30835581698
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=31622826086
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=32410069801
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=33197313516
+mem_heap_B=82655373
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=detailed
+n5: 82655373 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 71205896 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 71205896 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 70976280 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 70976280 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n3: 35488272 0x111800: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n2: 17744136 0x1118A5: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:520)
+       n1: 17744136 0x11986B: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:106)
+        n1: 17744136 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 17744136 0x10DB04: main (detect-image.cpp:84)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n1: 17744136 0x1118C4: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 17744136 0x119807: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:101)
+        n1: 17744136 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 17744136 0x10DB04: main (detect-image.cpp:84)
+      n0: 0 in 1 place, below massif's threshold (1.00%)
+     n2: 35488008 0x1117E8: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n2: 35488008 0x1118C4: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 35488008 0x11986B: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:106)
+        n1: 35488008 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 35488008 0x10DB04: main (detect-image.cpp:84)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n0: 1770869 in 507 places, all below massif's threshold (1.00%)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+#-----------
+snapshot=33
+#-----------
+time=33984557902
+mem_heap_B=118143381
+mem_heap_extra_B=977259
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=35165424727
+mem_heap_B=118143381
+mem_heap_extra_B=977259
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=36477838234
+mem_heap_B=118143381
+mem_heap_extra_B=977259
+mem_stacks_B=2288
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=37265082997
+mem_heap_B=29423493
+mem_heap_extra_B=969707
+mem_stacks_B=2392
+heap_tree=detailed
+n7: 29423493 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 17974016 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 17974016 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n3: 17744400 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n2: 8872200 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n2: 8872200 0x1117E8: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n2: 8872200 0x1118A5: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:520)
+       n1: 8872200 0x119910: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:115)
+        n1: 8872200 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 8872200 0x10DB04: main (detect-image.cpp:84)
+       n0: 0 in 2 places, all below massif's threshold (1.00%)
+      n0: 0 in 2 places, all below massif's threshold (1.00%)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n2: 8872200 0x111AB2: maxpooling2x2S2(CDataBlob<float> const&) (facedetectcnn.cpp:544)
+     n1: 8872200 0x1198B0: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:111)
+      n1: 8872200 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 8872200 0x10DB04: main (detect-image.cpp:84)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+ n0: 739638 in 505 places, all below massif's threshold (1.00%)
+ n1: 716719 0x8E3D9EC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n0: 716719 in 8 places, all below massif's threshold (1.00%)
+ n1: 314512 0x7A4A255: CPLMalloc (in /usr/lib/libgdal.so.26.0.4)
+  n0: 314512 in 5 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=38445950849
+mem_heap_B=29423493
+mem_heap_extra_B=969707
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=39233196047
+mem_heap_B=29423493
+mem_heap_extra_B=969707
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=40020441223
+mem_heap_B=38295693
+mem_heap_extra_B=973483
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=40807687549
+mem_heap_B=38295693
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=41594932846
+mem_heap_B=38295693
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=42382178044
+mem_heap_B=38295693
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=43169423253
+mem_heap_B=38295693
+mem_heap_extra_B=973483
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=43956668063
+mem_heap_B=47167893
+mem_heap_extra_B=977259
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=44743914473
+mem_heap_B=24987789
+mem_heap_extra_B=965963
+mem_stacks_B=2392
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=45531159829
+mem_heap_B=27206037
+mem_heap_extra_B=965979
+mem_stacks_B=2408
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=46712052196
+mem_heap_B=29424285
+mem_heap_extra_B=965995
+mem_stacks_B=2288
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=47892918613
+mem_heap_B=26306301
+mem_heap_extra_B=966059
+mem_stacks_B=2248
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=48680163321
+mem_heap_B=24504717
+mem_heap_extra_B=966091
+mem_stacks_B=2264
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=49355423676
+mem_heap_B=33793053
+mem_heap_extra_B=969883
+mem_stacks_B=2248
+heap_tree=detailed
+n6: 33793053 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 22343576 0x11071F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 22343576 0x114475: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n4: 22113960 0x113A67: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 12687000 0x1116A2: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n2: 8872200 0x1117E8: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n1: 8872200 0x119EFB: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:167)
+       n1: 8872200 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 8872200 0x10DB04: main (detect-image.cpp:84)
+      n0: 0 in 13 places, all below massif's threshold (1.00%)
+     n4: 3814800 0x111800: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n1: 2218248 0x119CE4: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:153)
+       n1: 2218248 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 2218248 0x10DB04: main (detect-image.cpp:84)
+      n0: 625656 in 10 places, all below massif's threshold (1.00%)
+      n1: 554760 0x119ACD: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:139)
+       n1: 554760 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 554760 0x10DB04: main (detect-image.cpp:84)
+      n1: 416136 0x119DE2: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:156)
+       n1: 416136 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 416136 0x10DB04: main (detect-image.cpp:84)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 8872200 0x11148E: elementAdd(CDataBlob<float> const&, CDataBlob<float> const&) (facedetectcnn.cpp:467)
+     n1: 8872200 0x119E9A: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:162)
+      n1: 8872200 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 8872200 0x10DB04: main (detect-image.cpp:84)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 554760 0x111AB2: maxpooling2x2S2(CDataBlob<float> const&) (facedetectcnn.cpp:544)
+     n1: 554760 0x1199AA: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:129)
+      n1: 554760 0x11AC30: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 554760 0x10DB04: main (detect-image.cpp:84)
+     n0: 0 in 3 places, all below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 6480072 0x4EE52A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 6480072 0x4FF0330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 6480072 0x489B537: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+    n1: 6480072 0x489B9D1: cv::imread(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.2.0)
+     n0: 6480072 0x10D9E1: main (detect-image.cpp:57)
+ n1: 1650720 0x8E3D734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0x8E3BFAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF000192: ???
+           n0: 1650720 0x1FFF0001A1: ???
+ n1: 1547816 0x8E3DE53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0x8E3BFB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0x8E3F7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0x8E3BD03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF000192: ???
+           n0: 1547816 0x1FFF0001A1: ???
+ n0: 1054150 in 506 places, all below massif's threshold (1.00%)
+ n1: 716719 0x8E3D9EC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n0: 716719 in 8 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=51
+#-----------
+time=50030683793
+mem_heap_B=33793053
+mem_heap_extra_B=969883
+mem_stacks_B=2248
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=50705943811
+mem_heap_B=33793053
+mem_heap_extra_B=969883
+mem_stacks_B=2248
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=51381203928
+mem_heap_B=33793053
+mem_heap_extra_B=969883
+mem_stacks_B=2248
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=52056464045
+mem_heap_B=33793053
+mem_heap_extra_B=969883
+mem_stacks_B=2248
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=52731724069
+mem_heap_B=42665253
+mem_heap_extra_B=973659
+mem_stacks_B=2264
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=53406983727
+mem_heap_B=26585133
+mem_heap_extra_B=966155
+mem_stacks_B=2264
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=54082243505
+mem_heap_B=29357877
+mem_heap_extra_B=966171
+mem_stacks_B=2264
+heap_tree=empty
