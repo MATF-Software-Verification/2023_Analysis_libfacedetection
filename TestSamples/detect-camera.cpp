@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
     
     if( isdigit(argv[1][0]))
     {
-        cap.open("camera-test.mp4");
+        cap.open("../TestSamples/camera-test.mp4");
         if(! cap.isOpened())
         {
             cerr << "Cannot open the camera." << endl;
