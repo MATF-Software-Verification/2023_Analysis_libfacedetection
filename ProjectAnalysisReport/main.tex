@@ -27,7 +27,7 @@ $marija.eric@matf.bg.ac.rs$}
 
 \begin{abstract}
 Projekat na kome je izvrshena analiza je biblioteka za detekciju lica, napisana u $C++$. Biblioteka je otvorenog koda i mozhe se pronac1i na narednom \href{https://github.com/ShiqiYu/libfacedetection}{linku}. 
-
+Primena alata je izvrshena na glavnoj grani, nad komitom chiji je hesh kod: $ec528ce43af9de94bf2fab308ce2d6270584881c$. U kodu nisu pronadjeni vec1i propusti, pored nekorish\-c1enih promenljivih i curenja memorije.
 \end{abstract}
 \tableofcontents
 \newpage
@@ -35,31 +35,41 @@ Projekat na kome je izvrshena analiza je biblioteka za detekciju lica, napisana 
 \section{Verifikacija softvera}
 \subsection{Dinamichka analiza}
 \subsubsection{$Gcov$}
+$Gcov$ alat za odredivanje pokrivenosti koda prilikom
+izvršavanja programa ($engl. code coverage$). Koristi se zajedno sa $gcc$ kompajlerom
+da bi se analizirao program i utvrdilo kako se mozhe kreirati efikasniji, brzhi kod i da bi
+se testovima pokrili delovi programa.
+Zarad lepshe reprezentacije rezultata detekcije pokrivenosti koda izvrshavanjem test primera,
+koristi se alat $lcov$ \cite{VSskripta}.
 
-Prikazana je pokrivenost za ispravno pokretanja primera upotrebe.
+\paragraph{Nachin pokretanja alata:}
+Prilikom kompilacije neophodno je koristiti dodatne opcije kompajlera koje
+omoguc1avaju snimanje koliko je puta koja linija, grana i funkcija izvrshena. Detalji se nalaze na dnu teksta. U nastavku se nalazi pokretanje alata $lcov$ i generisanje $html$ izveshtaja.
+\fontencoding{T1}\selectfont
 
+\inputminted[firstline=5]{shell-session}{run_gcov.sh}
+
+\fontencoding{OT2}\selectfont
+Na slici \ref{covd:gcov} se nalazi izveshtaj za oba primera upotrebe biblioteke: $detect-image$ i $detect-camera.$ Analizirano je ispravno pokretanje programa. Kao shto vidimo pokrivenost koda je velika. Sve funkcije definisane u okviru biblioteke su iskorish\-c1ene. Pokrivenost grana je manja (oko 50\%). U okviru $detect-image$ i $detect-camera$ je velika pokrivenost naredbi. Jedine neizvrshene su naredbe obrade pogreshnog ulaza. Detaljan izveshtaj se mozhe videti na \ref{di:gcov} i \ref{dc:gcov}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/gcov/gcovCoverageDetect.png}
-    \caption{Pokrivenost koda }
+    \caption{Izveshtaj o pokrivenost koda}
     \label{covd:gcov}
 \end{figure}
 
-%Vidimo da je velika pokrivenost svih datoteka, osim 9....
-%U njima se nalaze pokretanja vezana za math i slichne biblioteke, i %sasvim je u redu da pokrivenost ne bude velika...
-
-%Detaljnija pokrivenost za pokrivenost biblioteke, bas pokriveno, %koriste se sve funkcije definisane u biblioteci.
+\paragraph{Rezultati:}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/gcov/gcovDI.png}
-    \caption{Pokrivenost koda pokretanjem detect image}
+    \caption{Pokrivenost koda $detect-image$}
     \label{di:gcov}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/gcov/gcovDC.png}
-    \caption{Pokrivenost koda detect camera}
+    \caption{Pokrivenost koda $detect-camera$}
     \label{dc:gcov}
 \end{figure}
 \begin{figure}[H]
@@ -69,10 +79,21 @@ Prikazana je pokrivenost za ispravno pokretanja primera upotrebe.
     \label{src:gcov}
 \end{figure}
 
-%Vidimo da je biblioteka super, ima implementirane samo elemnte koji su joj bitni.
+Mala pokrivenost je u okviru $opencv$ biblioteke, jer se koristi samo jedna funkcija definisana u ovoj bibliotekom, kao i funkcije iz $math$ biblioteke. 
+
+Dakle, nakon pokretanja alata $gcov$ mozhemo da zakljuchimo da imamo veliku pokrivenost koda, kao i da nemamo nekorish\-c1ene funckije u okviru biblioteke za detekciju lica.
+
 \subsection{Profajliranje}
-Sa obzirom na to, da se u kodu koristi dosta dinamichka alokacija memorije, cilj je da detaljnije ispitamo stanje na heapu i steku, korishcenjem profajlera. Pokretanje se vrshi sa istim ulazom.
+Sa obzirom na to da se u okviru biblioteke koristi dinamichka alokacija memorije, bitno je da ispitamo da li je doshlo do curenja memorije. Iz tog razloga vrshimo profajliranje programa $detect-image$ i $detect-camera$. U okviru analize su korish\-c1eni alati $Memcheck$ i $Massif$.
 \subsubsection{$Memcheck$}
+%Uvod za memecheck%
+
+\paragraph{Nachin pokretanja:} 
+Bitno je da prevodjenje izvrshimo u $debug$ modu. Nakon toga, pokrec1eno $Memcheck$, deo izveshtaja je prikazan na slikama \ref{di:mcheck} i \ref{dc:mcheck}, dok se celokupan izlaz mozhe nac1i u okviru foldera $Memcheck$ na $github$ repozitorijumu. 
+\fontencoding{T1}\selectfont
+\inputminted[]{shell-session}{run_memcheck.sh}
+
+\fontencoding{OT2}\selectfont
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/memcheck/memcheck-detect-image.png}
@@ -86,6 +107,8 @@ Sa obzirom na to, da se u kodu koristi dosta dinamichka alokacija memorije, cilj
     \caption{Deo izlaza alata $Memcheck$ nad $detect-camera.$}
     \label{dc:mcheck}
 \end{figure}
+Dobijamo jako slichne izlaze za oba programa. Na osnovu sazhetka alata vidimo da nema curenja memorije. 
+Takođe vidimo da imamo moguc1i gubitak (oko 5000 bajtova u oba programa). Kada ispitamo stek poziva vidimo da je moguc1i gubitak izazvao poziv funkcije calloc, ali zakljuchujemo da ne postoji gubitak memorije koji je izazvan od strane programera.
 \subsubsection{$Massif$}
 
 Za vizuelizaciju rezultata korish\-c1en $massif_visualizer$, koji je preuzet sa \href{https://github.com/KDE/massif-visualizer}{$https://github.com/KDE/massif-visualizer$}, gde se mozhe pronac1i detaljno uputstvo za instaliranje i pokretanje.
@@ -195,7 +218,7 @@ Detaljnije o porukama se mozhe videti na slici \ref{html:cppcheck}.
     \label{html:cppcheck}
 \end{figure}
 
-Greshka se nalazi u 76 liniji u fajlu $detect-camera.cpp$. Deo koda koji izaziva gresku je dat u nastavku:
+Greshka se nalazi u 76 liniji u fajlu $detect-camera.cpp$. Deo koda koji izaziva greshku je dat u nastavku:
 \fontencoding{T1}\selectfont
 
 \inputminted[frame=lines,
@@ -262,9 +285,9 @@ bash runCppCheck.sh
 cd libfacedetection
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release -DDEMO=OFF
-cmake --build . --config Release
-cmake --build . --config Release --target install
+cmake .. -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug -DDEMO=OFF
+cmake --build . --config Debug
+cmake --build . --config Debug --target install
 \end{minted}
 
 \subsection*{$Gcov$}
