@@ -34,6 +34,18 @@ Primena alata je izvrshena na glavnoj grani, nad komitom chiji je hesh kod: $ec5
 
 \section{Verifikacija softvera}
 \subsection{Dinamichka analiza}
+\subsubsection{Izmena programa}
+Da bismo mogli da repordukujemo rezultate dobijene prilikom izvrshavanja programa, neophodna je izmena u okviru $detect-camera$.
+Na slici \ref{izmene} je prikazana izmena. Na levoj slici se nalazi originalan kod, a na desnoj izmenjeni kod.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=6cm]{img/dc-original.png}
+    \includegraphics[width=6cm]{img/dc-izmena.png}
+    
+    \caption{Izmene u okviru $detect-camera$}
+    \label{izmene}
+\end{figure}
+
 \subsubsection{$Gcov$}
 $Gcov$ alat za odredivanje pokrivenosti koda prilikom
 izvršavanja programa ($engl. code coverage$). Koristi se zajedno sa $gcc$ kompajlerom
@@ -79,7 +91,7 @@ Na slici \ref{covd:gcov} se nalazi izveshtaj za oba primera upotrebe biblioteke:
     \label{src:gcov}
 \end{figure}
 
-Mala pokrivenost je u okviru $opencv$ biblioteke, jer se koristi samo jedna funkcija definisana u ovoj bibliotekom, kao i funkcije iz $math$ biblioteke. 
+Mala pokrivenost je u okviru $opencv$ biblioteke, jer se koristi samo jedna funkcija definisana u ovoj biblioteci, kao i funkcije iz $math$ biblioteke. 
 
 Dakle, nakon pokretanja alata $gcov$ mozhemo da zakljuchimo da imamo veliku pokrivenost koda, kao i da nemamo nekorish\-c1ene funckije u okviru biblioteke za detekciju lica.
 
@@ -108,39 +120,55 @@ Bitno je da prevodjenje izvrshimo u $debug$ modu. Nakon toga, pokrec1eno $Memche
     \label{dc:mcheck}
 \end{figure}
 Dobijamo jako slichne izlaze za oba programa. Na osnovu sazhetka alata vidimo da nema curenja memorije. 
-Takođe vidimo da imamo moguc1i gubitak (oko 5000 bajtova u oba programa). Kada ispitamo stek poziva vidimo da je moguc1i gubitak izazvao poziv funkcije calloc, ali zakljuchujemo da ne postoji gubitak memorije koji je izazvan od strane programera.
+Takođe vidimo da imamo moguc1i gubitak (oko 5000 bajtova u oba programa). Kada ispitamo stek poziva vidimo da je moguc1i gubitak izazvao poziv funkcije $calloc$, ali zakljuchujemo da ne postoji gubitak memorije koji je izazvan od strane programera.
 \subsubsection{$Massif$}
+\fontencoding{OT2}\selectfont
+$Massif$ predstavlja profajler $heap$ memorije. Ovaj alat meri koliko $heap$ memorije program koristi (korisna memorije + dodatna memorija za administraciju). U okviru ove analize je merena i velichina steka korish\-c1ena u okviru programa.
 
-Za vizuelizaciju rezultata korish\-c1en $massif_visualizer$, koji je preuzet sa \href{https://github.com/KDE/massif-visualizer}{$https://github.com/KDE/massif-visualizer$}, gde se mozhe pronac1i detaljno uputstvo za instaliranje i pokretanje.
+Motivacija iza korishc1enja i ovog alata lezhi u tome da Memcheck ne mozhe da detektuje sva potencijalna curenja memorije.
+
+\fontencoding{T1}\selectfont
+\inputminted[fistline=3, lastline=6]{shell-session}{run_massif.sh}
+\fontencoding{OT2}\selectfont
+Za vizuelizaciju rezultata korish\-c1en $massif-visualizer$, koji je preuzet sa \href{https://github.com/KDE/massif-visualizer}{$https://github.com/KDE/massif-visualizer$}, gde se mozhe pronac1i detaljno uput\-stvo za instaliranje i pokretanje.
+
+Na slikama \ref{dim:massif} i \ref{dima:massif} se nalaze izveshtaji vezani za program $detect-image$, dok se na slikama \ref{dcm:massif} i \ref{dcma:massif} nalaze izveshtaji vezani za program $detect-camera$. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/massif/massif_detect_image_memory.png}
-    \caption{}
+    \caption{Korish\-c1enje memorije u programu $detect-image$}
     \label{dim:massif}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/massif/massif_detect_image_allocators.png}
-    \caption{}
+    \caption{Alokatori u programu $detect-image$}
     \label{dima:massif}
 \end{figure}
+
+Na slici \ref{dim:massif} mozhemo videti stanje $heap-a$ tokom izvrshavanja programa $detect-image$.  Vidimo da se na pochetku izvrshavanja vrshi alociranje memorije koja c1e se koristiti u nastavku, i $peak$ se deshava u nekoliko prvih $snapshotova.$ Nakon toga se samo vrshu dealokacija memorije. Jedan od grafika sa slike koji ima velike skokove predstavlja ukupnu korish\-c1enu memoriju (zajedno sa stekom), pa ima dosta promena.
+
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/massif/massif_detect_camera_memory1.png}
-    \caption{}
+    \caption{Korish\-c1enje memorije u programu $detect-camera$}
     \label{dcm:massif}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{img/massif/massif_detect_camera_allocators.png}
-    \caption{}
+    \caption{Alokatori u programu $detect-camera$}
     \label{dcma:massif}
 \end{figure}
 
 
+Na slici \ref{dcm:massif} je prikazao stanje $heapa$ tokom izvrshavanja programa $detect-camera.$
+Situacija je slichna kao kod programa $detect-image.$ Nakon detekcije lica na jednoj slici, vrshi se dealokacije. Taj sluchaj je uhvac1en u okviru $snapshota 68.$
+
+Na osnovu gorenavedenih komentara mozhemo zakljuchiti da je odgovrno korishc1en $heap$.
 \subsection{Statichka analiza}
 \subsubsection{$CppCheck$}
 $CppCheck$ je alat za statichku analizu $C/C++$ koda, koji pruzha jedinstvenu analizu za detekciju greshaka, sa fokusom na nedefinisano ponashanje i sa opasnim konstruktima koda. Analiza dobijena $CppCheck$ nije ni saglasna, niti je potpuna. Dakle, mozhe imati i lazhno pozitivne rezultate, kao i lazhno negativne.
@@ -234,7 +262,7 @@ linenos
 \fontencoding{OT2}\selectfont
 Dakle, memorija koje je alocirana u liniji 59 se ne oslobadja pre prekida izvrshavanja programa, ukoliko je $VideoCapture$ neuspeshno otvoren.
 
-Pored toga su prijavljena upozrorenja za nekorishcene promenljive i funkcije. Detaljan izveshtaj se mozhe pronac1i u okviru repozitorijuma za analizu projekta, u okviru foldera $CppCheckReport.$ U navedenom repozitorijumu je za svaki fajl u kome je alat pronashao neki problem napravljen $html$ izveshtaj sa obelezhenim mestima sa pronadjenim problemima.
+Pored toga su prijavljena upozrorenja za nekorish\-c1ene promenljive i funkcije. Detaljan izveshtaj se mozhe pronac1i u okviru repozitorijuma za analizu projekta, u okviru foldera $CppCheckReport.$ U navedenom repozitorijumu je za svaki fajl u kome je alat pronashao neki problem napravljen $html$ izveshtaj sa obelezhenim mestima sa pronadjenim problemima.
 
 
 \fontencoding{OT2}\selectfont
@@ -261,6 +289,7 @@ nakon chega se otvara prozor prikazan na slici \ref{qt:cppcheck}.
 Selektovanjem polja $inconclusive$ $errors$ se prijavljuju i lazhna upozorenja ($false$ $positive$). 
 
 \section{Zakljuchak}
+U okviru projekta je analizirana biblioteka za detekciju lica i dva njena primera upotrebe - detekcija lica na prosled1enoj slici i detekcija lica sa kamere uredjaja. Korish\-c1ena su chetiri alata za analizu. Na osnovu njih mozhemo zakljuchiti da biblioteka nema vec1ih propusta. Dinamichkom analizom nisu pronadjeni propusti, dok je statichka analiza pronashla curenje memorije i nekoliko nekorish\-c1enih promenljivih.
 
 \section{Pokretanje skripti za reprodukovanje rezultata}
 \fontencoding{T1}\selectfont
@@ -273,21 +302,32 @@ git submodule init
 git submodule update
 \end{minted}
 
-\subsection*{$CppCheck$}
-\begin{minted}{shell-session}
-cd ../CppCheckReport
-bash runCppCheck.sh
-\end{minted}
-
-\subsection*{$Prevodjenje biblioteke$}
+\subsection*{Prevodjenje biblioteke}
 
 \begin{minted}{shell-session}
 cd libfacedetection
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug -DDEMO=OFF
+cmake .. -DCMAKE_INSTALL_PREFIX=install 
+-DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug -DDEMO=OFF
 cmake --build . --config Debug
 cmake --build . --config Debug --target install
+\end{minted}
+
+\subsection{Pokretanje alata}
+\fontencoding{OT2}\selectfont
+Pre pokretanja alata potrebno je preuzimanje projekta i prevodjenje biblioteke. \\
+Nakon toga je potrebno prevesti programe $detect-image$ i $detect-camera$:
+\fontencoding{T1}\selectfont
+\begin{minted}{shell-session}
+cd ../TestSamples
+bash build.sh
+\end{minted}
+
+\subsection*{$CppCheck$}
+\begin{minted}{shell-session}
+cd ../CppCheckReport
+bash run_cppcheck.sh
 \end{minted}
 
 \subsection*{$Gcov$}
@@ -296,6 +336,17 @@ cd ../CppCheckReport
 bash run_gcov.sh
 \end{minted}
 
+\subsection*{$Memcheck$}
+\begin{minted}{shell-session}
+cd ../Memcheck
+bash run_memcheck.sh
+\end{minted}
+\subsection*{$Massif$}
+\begin{minted}{shell-session}
+cd ../Massif
+bash run_massif.sh
+\end{minted}
+\newpage
 \fontencoding{OT2}\selectfont
 
 \bibliographystyle{plain}
