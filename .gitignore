@@ -1,0 +1,7 @@
+*.gcda
+*.gcno
+*.txt
+*.info
+Reports
+*.html
+*.css
