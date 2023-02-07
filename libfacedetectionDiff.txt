@@ -1,0 +1,68 @@
+diff --git a/libfacedetection/example/detect-camera.cpp b/libfacedetection/example/detect-camera.cpp
+index 3f3627e..063f963 100644
+--- a/libfacedetection/example/detect-camera.cpp
++++ b/libfacedetection/example/detect-camera.cpp
+@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
+     
+     if( isdigit(argv[1][0]))
+     {
+-        cap.open(argv[1][0]-'0');
++        cap.open("../TestSamples/camera-test.mp4");
+         if(! cap.isOpened())
+         {
+             cerr << "Cannot open the camera." << endl;
+@@ -82,6 +82,8 @@ int main(int argc, char* argv[])
+         while(true)
+         {
+             cap >> im;
++            if (im.rows == 0)
++                break;
+             //cout << "Image size: " << im.rows << "X" << im.cols << endl;
+             Mat image = im.clone();
+ 
+@@ -100,9 +102,10 @@ int main(int argc, char* argv[])
+             printf("time = %gms\n", cvtm.getTimeMilli());
+             
+             printf("%d faces detected.\n", (pResults ? *pResults : 0));
+-            Mat result_image = image.clone();
++#ifndef PROFILING
++          Mat result_image = image.clone();
+             //print the detection results
+-            for(int i = 0; i < (pResults ? *pResults : 0); i++)
++          for(int i = 0; i < (pResults ? *pResults : 0); i++)
+             {
+                 short * p = ((short*)(pResults+1))+142*i;
+                 int confidence = p[0];
+@@ -131,8 +134,9 @@ int main(int argc, char* argv[])
+                         p[5], p[6], p[7], p[8], p[9], p[10], p[11], p[12], p[13],p[14]);
+ 
+             }
++          
+             imshow("result", result_image);
+-            
++#endif
+             if((cv::waitKey(2)& 0xFF) == 'q')
+                 break;
+         }
+diff --git a/libfacedetection/example/detect-image.cpp b/libfacedetection/example/detect-image.cpp
+index 6de27a6..9cadaad 100644
+--- a/libfacedetection/example/detect-image.cpp
++++ b/libfacedetection/example/detect-image.cpp
+@@ -87,6 +87,8 @@ int main(int argc, char* argv[])
+     printf("time = %gms\n", cvtm.getTimeMilli());
+     
+     printf("%d faces detected.\n", (pResults ? *pResults : 0));
++
++#ifndef PROFILING
+ 	Mat result_image = image.clone();
+ 	//print the detection results
+ 	for(int i = 0; i < (pResults ? *pResults : 0); i++)
+@@ -118,7 +120,7 @@ int main(int argc, char* argv[])
+ 
+ 	}
+ 	imshow("result", result_image);
+-
++#endif
+ 	waitKey();
+ 
+     //release the buffer
