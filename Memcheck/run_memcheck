@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -xe;
+
+./../TestSamples/build CFLAGS="-DPROFILING"
+
+valgrind  --log-file="memcheck-detect-image.txt" ./detect-image ../TestSamples/image-test.jpg
+
+valgrind  --log-file="memcheck-detect-camera.txt" ./detect-camera 0
+
+valgrind  --log-file="memcheck-alloc-test.txt" ./alloc-test
+

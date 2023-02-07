@@ -1,9 +1,4 @@
 *.gcda
 *.gcno
-*.txt
-*.info
-Reports
-*.html
-*.css
 detect-image
 detect-camera

@@ -1,0 +1,1442 @@
+desc: --stacks=yes --massif-out-file=massif-detect-camera.txt
+cmd: ./detect-camera 0
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=33193284446
+mem_heap_B=156851952
+mem_heap_extra_B=1022304
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=55590412168
+mem_heap_B=161248803
+mem_heap_extra_B=1017941
+mem_stacks_B=3672
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=70419338893
+mem_heap_B=111114291
+mem_heap_extra_B=1025493
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=92577356283
+mem_heap_B=94402611
+mem_heap_extra_B=1025493
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=119474863167
+mem_heap_B=98653877
+mem_heap_extra_B=1022651
+mem_stacks_B=3936
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=145914572519
+mem_heap_B=81942725
+mem_heap_extra_B=1015163
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=175461452035
+mem_heap_B=99808607
+mem_heap_extra_B=1020809
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=204563159131
+mem_heap_B=167804535
+mem_heap_extra_B=1021313
+mem_stacks_B=3792
+heap_tree=detailed
+n4: 167804535 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 100500224 0x10FB8F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 100500224 0x1138E5: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n3: 100270608 0x112ED7: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n1: 66846984 0x10FD18: setDataFrom3x3S2P1to1x1S1P0FromImage(unsigned char const*, int, int, int, int, int) (facedetectcnn.cpp:94)
+     n1: 66846984 0x118AF8: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:83)
+      n1: 66846984 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 66846984 0x10DB75: main (detect-camera.cpp:99)
+    n2: 33423624 0x110B12: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n1: 33423624 0x118B1E: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:88)
+      n1: 33423624 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 33423624 0x10DB75: main (detect-camera.cpp:99)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 6 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n3: 49845471 0x7E49FFC: av_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+  n3: 43247299 0x7E283AC: av_buffer_alloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n2: 36843870 0x7E28431: av_buffer_allocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n3: 36664166 0x7E28BBC: av_buffer_pool_get (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+     n1: 25115496 0x682D1AB: avcodec_default_get_buffer2 (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n2: 25115496 0x682DA4A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 25115496 0x6BF37BD: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 25115496 0x694427F: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 25115496 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 25115496 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+           n1: 25115496 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+            n1: 25115496 0x6393608: start_thread (pthread_create.c:477)
+             n0: 25115496 0x5128292: clone (clone.S:95)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 10466880 0x6944346: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 10466880 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n2: 10466880 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 10466880 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 10466880 0x6393608: start_thread (pthread_create.c:477)
+          n0: 10466880 0x5128292: clone (clone.S:95)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 1081790 in 3 places, all below massif's threshold (1.00%)
+    n0: 179704 in 2 places, all below massif's threshold (1.00%)
+   n1: 6267008 0x7E34EEB: av_frame_get_buffer (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n1: 6267008 0x48ECFF0: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+     n1: 6267008 0x48ED1CD: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6267008 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6267008 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6267008 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6267008 0x10DADF: main (detect-camera.cpp:84)
+   n0: 136421 in 3 places, all below massif's threshold (1.00%)
+  n1: 4682962 0x7E4A3B1: av_mallocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 4682962 in 68 places, all below massif's threshold (1.00%)
+  n0: 1915210 in 37 places, all below massif's threshold (1.00%)
+ n1: 12441744 0x496F2A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 12441744 0x4A7A330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 12441744 0x4AD0CB0: cv::_OutputArray::create(int, int, int, int, bool, cv::_OutputArray::DepthMask) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+    n2: 12441744 0x49D5919: cv::Mat::copyTo(cv::_OutputArray const&) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+     n1: 6220872 0x10E19D: cv::Mat::clone() const (mat.inl.hpp:811)
+      n0: 6220872 0x10DB06: main (detect-camera.cpp:88)
+     n1: 6220872 0x48ED321: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6220872 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6220872 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6220872 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6220872 0x10DADF: main (detect-camera.cpp:84)
+ n0: 5017096 in 531 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=9
+#-----------
+time=227800417325
+mem_heap_B=117669759
+mem_heap_extra_B=1025089
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=256692855916
+mem_heap_B=167800581
+mem_heap_extra_B=1020523
+mem_stacks_B=3680
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=277570195320
+mem_heap_B=100953861
+mem_heap_extra_B=1020523
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=298646501284
+mem_heap_B=84242973
+mem_heap_extra_B=1016811
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=322357344040
+mem_heap_B=100996873
+mem_heap_extra_B=1025343
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=335530034962
+mem_heap_B=134420233
+mem_heap_extra_B=1025343
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=359248008891
+mem_heap_B=167845967
+mem_heap_extra_B=1021297
+mem_stacks_B=3672
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=375055237749
+mem_heap_B=117711455
+mem_heap_extra_B=1028849
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=396131546880
+mem_heap_B=92643671
+mem_heap_extra_B=1025073
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=411717304312
+mem_heap_B=167801887
+mem_heap_extra_B=1020905
+mem_stacks_B=3672
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=436231925726
+mem_heap_B=134378791
+mem_heap_extra_B=1024681
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=469570571574
+mem_heap_B=168954916
+mem_heap_extra_B=1025388
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=493923331105
+mem_heap_B=85396252
+mem_heap_extra_B=1021612
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=520268131633
+mem_heap_B=168952036
+mem_heap_extra_B=1025436
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=541963845898
+mem_heap_B=168952300
+mem_heap_extra_B=1029212
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=571419515027
+mem_heap_B=168951559
+mem_heap_extra_B=1024881
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=591877604674
+mem_heap_B=168951823
+mem_heap_extra_B=1028657
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=625974419204
+mem_heap_B=85435598
+mem_heap_extra_B=1022386
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=653251872388
+mem_heap_B=81257942
+mem_heap_extra_B=1018642
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=680529325944
+mem_heap_B=118859685
+mem_heap_extra_B=1029963
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=713241632720
+mem_heap_B=170109602
+mem_heap_extra_B=1022390
+mem_stacks_B=3792
+heap_tree=peak
+n4: 170109602 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 100500224 0x10FB8F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 100500224 0x1138E5: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n3: 100270608 0x112ED7: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n1: 66846984 0x10FD18: setDataFrom3x3S2P1to1x1S1P0FromImage(unsigned char const*, int, int, int, int, int) (facedetectcnn.cpp:94)
+     n1: 66846984 0x118AF8: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:83)
+      n1: 66846984 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 66846984 0x10DB75: main (detect-camera.cpp:99)
+    n2: 33423624 0x110B12: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n1: 33423624 0x118B1E: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:88)
+      n1: 33423624 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 33423624 0x10DB75: main (detect-camera.cpp:99)
+     n0: 0 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 6 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n3: 52150538 0x7E49FFC: av_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+  n3: 45551886 0x7E283AC: av_buffer_alloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n2: 39153604 0x7E28431: av_buffer_allocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n3: 38973900 0x7E28BBC: av_buffer_pool_get (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+     n1: 25115496 0x682D1AB: avcodec_default_get_buffer2 (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n2: 25115496 0x682DA4A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 25115496 0x6BF37BD: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 25115496 0x694427F: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 25115496 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 25115496 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+           n1: 25115496 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+            n1: 25115496 0x6393608: start_thread (pthread_create.c:477)
+             n0: 25115496 0x5128292: clone (clone.S:95)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 12560256 0x6944346: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 12560256 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n2: 12560256 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 12560256 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 12560256 0x6393608: start_thread (pthread_create.c:477)
+          n0: 12560256 0x5128292: clone (clone.S:95)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 1298148 in 3 places, all below massif's threshold (1.00%)
+    n0: 179704 in 2 places, all below massif's threshold (1.00%)
+   n1: 6267008 0x7E34EEB: av_frame_get_buffer (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n1: 6267008 0x48ECFF0: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+     n1: 6267008 0x48ED1CD: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6267008 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6267008 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6267008 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6267008 0x10DADF: main (detect-camera.cpp:84)
+   n0: 131274 in 3 places, all below massif's threshold (1.00%)
+  n1: 4683442 0x7E4A3B1: av_mallocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 4683442 in 68 places, all below massif's threshold (1.00%)
+  n0: 1915210 in 37 places, all below massif's threshold (1.00%)
+ n1: 12441744 0x496F2A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 12441744 0x4A7A330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 12441744 0x4AD0CB0: cv::_OutputArray::create(int, int, int, int, bool, cv::_OutputArray::DepthMask) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+    n2: 12441744 0x49D5919: cv::Mat::copyTo(cv::_OutputArray const&) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+     n1: 6220872 0x10E19D: cv::Mat::clone() const (mat.inl.hpp:811)
+      n0: 6220872 0x10DB06: main (detect-camera.cpp:88)
+     n1: 6220872 0x48ED321: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6220872 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6220872 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6220872 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6220872 0x10DADF: main (detect-camera.cpp:84)
+ n0: 5017096 in 531 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=30
+#-----------
+time=730290039985
+mem_heap_B=103263146
+mem_heap_extra_B=1026166
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=761240121637
+mem_heap_B=90666746
+mem_heap_extra_B=1022566
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=784263488176
+mem_heap_B=103262928
+mem_heap_extra_B=1022440
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=810740364061
+mem_heap_B=90666792
+mem_heap_extra_B=1022616
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=845275414609
+mem_heap_B=136686605
+mem_heap_extra_B=1026035
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=876944377013
+mem_heap_B=170113381
+mem_heap_extra_B=1025267
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=895080345627
+mem_heap_B=136690021
+mem_heap_extra_B=1025267
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=921306127768
+mem_heap_B=170157656
+mem_heap_extra_B=1023032
+mem_stacks_B=3672
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=952135139313
+mem_heap_B=86599256
+mem_heap_extra_B=1023032
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=985776261103
+mem_heap_B=120021222
+mem_heap_extra_B=1030522
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=1007023286589
+mem_heap_B=94953438
+mem_heap_extra_B=1026746
+mem_stacks_B=3936
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=1026499725701
+mem_heap_B=136690068
+mem_heap_extra_B=1022452
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=1054829094209
+mem_heap_B=86555028
+mem_heap_extra_B=1022452
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=1088710544128
+mem_heap_B=119976922
+mem_heap_extra_B=1030142
+mem_stacks_B=3824
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=1115350986140
+mem_heap_B=90668578
+mem_heap_extra_B=1022766
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=1144238265400
+mem_heap_B=119976424
+mem_heap_extra_B=1026248
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=1173111649309
+mem_heap_B=170114216
+mem_heap_extra_B=1021784
+mem_stacks_B=3672
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=1202019201852
+mem_heap_B=170114744
+mem_heap_extra_B=1029336
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=1231019108726
+mem_heap_B=136736479
+mem_heap_extra_B=1023121
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=1259893013236
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=1260180802996
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=1260468592756
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=detailed
+n6: 94957543 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 52200775 0x7E49FFC: av_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+  n3: 45601859 0x7E283AC: av_buffer_alloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n2: 39153604 0x7E28431: av_buffer_allocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n3: 38973900 0x7E28BBC: av_buffer_pool_get (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+     n1: 25115496 0x682D1AB: avcodec_default_get_buffer2 (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n2: 25115496 0x682DA4A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 25115496 0x6BF37BD: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 25115496 0x694427F: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 25115496 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 25115496 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+           n1: 25115496 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+            n1: 25115496 0x6393608: start_thread (pthread_create.c:477)
+             n0: 25115496 0x5128292: clone (clone.S:95)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 12560256 0x6944346: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 12560256 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n2: 12560256 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 12560256 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 12560256 0x6393608: start_thread (pthread_create.c:477)
+          n0: 12560256 0x5128292: clone (clone.S:95)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 1298148 in 3 places, all below massif's threshold (1.00%)
+    n0: 179704 in 2 places, all below massif's threshold (1.00%)
+   n1: 6267008 0x7E34EEB: av_frame_get_buffer (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n1: 6267008 0x48ECFF0: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+     n1: 6267008 0x48ED1CD: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6267008 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6267008 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6267008 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6267008 0x10DADF: main (detect-camera.cpp:84)
+   n0: 181247 in 3 places, all below massif's threshold (1.00%)
+  n3: 4683706 0x7E4A3B1: av_mallocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1742553 in 66 places, all below massif's threshold (1.00%)
+   n1: 1603008 0x694EC60: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1603008 0x6942439: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1202256 0x6946536: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1202256 0x6BF1E26: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 1202256 0x682B092: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 1202256 0x682BAB7: avcodec_send_packet (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 1202256 0x682E142: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 1202256 0x48ED9DF: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+           n1: 1202256 0x48ACBE1: cv::VideoCapture::grab() (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+            n1: 1202256 0x48AC7B0: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+             n1: 1202256 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+              n0: 1202256 0x10DADF: main (detect-camera.cpp:84)
+     n0: 400752 in 1 place, below massif's threshold (1.00%)
+   n2: 1338145 0x68FB706: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1338145 0x694D6FF: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1338145 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1338145 0x6393608: start_thread (pthread_create.c:477)
+       n0: 1338145 0x5128292: clone (clone.S:95)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+  n1: 1145104 0x7E4ADB2: av_fast_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1145104 in 2 places, all below massif's threshold (1.00%)
+  n0: 770106 in 36 places, all below massif's threshold (1.00%)
+ n1: 25297928 0x10FB8F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 25297928 0x1138E5: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n3: 25068312 0x112ED7: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 16712208 0x110B12: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n2: 8356104 0x110C58: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n2: 8356104 0x110D34: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 8356104 0x118D1A: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:115)
+        n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+       n0: 0 in 4 places, all below massif's threshold (1.00%)
+      n0: 0 in 17 places, all below massif's threshold (1.00%)
+     n2: 8356104 0x110C70: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n2: 8356104 0x110D15: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:520)
+       n1: 8356104 0x118D1A: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:115)
+        n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+       n0: 0 in 4 places, all below massif's threshold (1.00%)
+      n0: 0 in 17 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 8356104 0x110F22: maxpooling2x2S2(CDataBlob<float> const&) (facedetectcnn.cpp:544)
+     n1: 8356104 0x118CBA: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:111)
+      n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+     n0: 0 in 3 places, all below massif's threshold (1.00%)
+    n0: 0 in 6 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 12441744 0x496F2A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 12441744 0x4A7A330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 12441744 0x4AD0CB0: cv::_OutputArray::create(int, int, int, int, bool, cv::_OutputArray::DepthMask) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+    n2: 12441744 0x49D5919: cv::Mat::copyTo(cv::_OutputArray const&) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+     n1: 6220872 0x10E19D: cv::Mat::clone() const (mat.inl.hpp:811)
+      n0: 6220872 0x10DB06: main (detect-camera.cpp:88)
+     n1: 6220872 0x48ED321: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6220872 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6220872 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6220872 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6220872 0x10DADF: main (detect-camera.cpp:84)
+ n0: 1818560 in 529 places, all below massif's threshold (1.00%)
+ n1: 1650720 0xF0E8734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0xF0E6FAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF0001AE: ???
+           n0: 1650720 0x1FFF0001BE: ???
+ n1: 1547816 0xF0E8E53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0xF0E6FB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF0001AE: ???
+           n0: 1547816 0x1FFF0001BE: ???
+#-----------
+snapshot=52
+#-----------
+time=1260756382417
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=1261044172177
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=1261331961937
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=1261619751697
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=1261907541358
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=1262195331118
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=1262483120878
+mem_heap_B=94957543
+mem_heap_extra_B=1026897
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=1262770911687
+mem_heap_B=103313647
+mem_heap_extra_B=1030673
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=1263058702592
+mem_heap_B=103313647
+mem_heap_extra_B=1030673
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=1263346492154
+mem_heap_B=82423783
+mem_heap_extra_B=1019377
+mem_stacks_B=3928
+heap_tree=detailed
+n6: 82423783 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 52200775 0x7E49FFC: av_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+  n3: 45601859 0x7E283AC: av_buffer_alloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n2: 39153604 0x7E28431: av_buffer_allocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n3: 38973900 0x7E28BBC: av_buffer_pool_get (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+     n1: 25115496 0x682D1AB: avcodec_default_get_buffer2 (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n2: 25115496 0x682DA4A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 25115496 0x6BF37BD: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 25115496 0x694427F: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 25115496 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 25115496 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+           n1: 25115496 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+            n1: 25115496 0x6393608: start_thread (pthread_create.c:477)
+             n0: 25115496 0x5128292: clone (clone.S:95)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 12560256 0x6944346: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 12560256 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n2: 12560256 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 12560256 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 12560256 0x6393608: start_thread (pthread_create.c:477)
+          n0: 12560256 0x5128292: clone (clone.S:95)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 1298148 in 3 places, all below massif's threshold (1.00%)
+    n0: 179704 in 2 places, all below massif's threshold (1.00%)
+   n1: 6267008 0x7E34EEB: av_frame_get_buffer (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n1: 6267008 0x48ECFF0: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+     n1: 6267008 0x48ED1CD: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6267008 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6267008 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6267008 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6267008 0x10DADF: main (detect-camera.cpp:84)
+   n0: 181247 in 3 places, all below massif's threshold (1.00%)
+  n3: 4683706 0x7E4A3B1: av_mallocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1742553 in 66 places, all below massif's threshold (1.00%)
+   n1: 1603008 0x694EC60: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1603008 0x6942439: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1202256 0x6946536: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1202256 0x6BF1E26: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 1202256 0x682B092: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 1202256 0x682BAB7: avcodec_send_packet (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 1202256 0x682E142: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 1202256 0x48ED9DF: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+           n1: 1202256 0x48ACBE1: cv::VideoCapture::grab() (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+            n1: 1202256 0x48AC7B0: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+             n1: 1202256 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+              n0: 1202256 0x10DADF: main (detect-camera.cpp:84)
+     n0: 400752 in 1 place, below massif's threshold (1.00%)
+   n2: 1338145 0x68FB706: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1338145 0x694D6FF: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1338145 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1338145 0x6393608: start_thread (pthread_create.c:477)
+       n0: 1338145 0x5128292: clone (clone.S:95)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+  n1: 1145104 0x7E4ADB2: av_fast_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1145104 in 2 places, all below massif's threshold (1.00%)
+  n0: 770106 in 36 places, all below massif's threshold (1.00%)
+ n1: 12764168 0x10FB8F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 12764168 0x1138E5: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n3: 12534552 0x112ED7: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 10445328 0x110B12: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n2: 8356104 0x110C70: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n2: 8356104 0x110D34: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 8356104 0x118D1A: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:115)
+        n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+       n0: 0 in 4 places, all below massif's threshold (1.00%)
+      n0: 0 in 17 places, all below massif's threshold (1.00%)
+     n2: 2089224 0x110C58: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n2: 2089224 0x110D15: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:520)
+       n1: 2089224 0x118D97: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:124)
+        n1: 2089224 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 2089224 0x10DB75: main (detect-camera.cpp:99)
+       n0: 0 in 4 places, all below massif's threshold (1.00%)
+      n0: 0 in 17 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 2089224 0x110F22: maxpooling2x2S2(CDataBlob<float> const&) (facedetectcnn.cpp:544)
+     n1: 2089224 0x118D37: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:120)
+      n1: 2089224 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 2089224 0x10DB75: main (detect-camera.cpp:99)
+     n0: 0 in 3 places, all below massif's threshold (1.00%)
+    n0: 0 in 6 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 12441744 0x496F2A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 12441744 0x4A7A330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 12441744 0x4AD0CB0: cv::_OutputArray::create(int, int, int, int, bool, cv::_OutputArray::DepthMask) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+    n2: 12441744 0x49D5919: cv::Mat::copyTo(cv::_OutputArray const&) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+     n1: 6220872 0x10E19D: cv::Mat::clone() const (mat.inl.hpp:811)
+      n0: 6220872 0x10DB06: main (detect-camera.cpp:88)
+     n1: 6220872 0x48ED321: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6220872 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6220872 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6220872 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6220872 0x10DADF: main (detect-camera.cpp:84)
+ n0: 1818560 in 529 places, all below massif's threshold (1.00%)
+ n1: 1650720 0xF0E8734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0xF0E6FAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF0001AE: ???
+           n0: 1650720 0x1FFF0001BE: ???
+ n1: 1547816 0xF0E8E53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0xF0E6FB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF0001AE: ???
+           n0: 1547816 0x1FFF0001BE: ???
+#-----------
+snapshot=62
+#-----------
+time=1263634281947
+mem_heap_B=82423783
+mem_heap_extra_B=1019377
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=63
+#-----------
+time=1263922071850
+mem_heap_B=82423783
+mem_heap_extra_B=1019377
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=1264209861627
+mem_heap_B=84513007
+mem_heap_extra_B=1019393
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=1264497651594
+mem_heap_B=84513007
+mem_heap_extra_B=1019393
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=1264785441497
+mem_heap_B=84513007
+mem_heap_extra_B=1019393
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=1265073232280
+mem_heap_B=86602231
+mem_heap_extra_B=1019409
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=1265361021578
+mem_heap_B=81379567
+mem_heap_extra_B=1019393
+mem_stacks_B=3928
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=1265648812414
+mem_heap_B=82424575
+mem_heap_extra_B=1019425
+mem_stacks_B=3944
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=1265936601779
+mem_heap_B=81445375
+mem_heap_extra_B=1019425
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=1266224391904
+mem_heap_B=83665687
+mem_heap_extra_B=1019473
+mem_stacks_B=3784
+heap_tree=detailed
+n6: 83665687 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 52200775 0x7E49FFC: av_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+  n3: 45601859 0x7E283AC: av_buffer_alloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n2: 39153604 0x7E28431: av_buffer_allocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n3: 38973900 0x7E28BBC: av_buffer_pool_get (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+     n1: 25115496 0x682D1AB: avcodec_default_get_buffer2 (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n2: 25115496 0x682DA4A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 25115496 0x6BF37BD: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 25115496 0x694427F: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 25115496 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 25115496 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+           n1: 25115496 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+            n1: 25115496 0x6393608: start_thread (pthread_create.c:477)
+             n0: 25115496 0x5128292: clone (clone.S:95)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 12560256 0x6944346: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 12560256 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n2: 12560256 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 12560256 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 12560256 0x6393608: start_thread (pthread_create.c:477)
+          n0: 12560256 0x5128292: clone (clone.S:95)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 1298148 in 3 places, all below massif's threshold (1.00%)
+    n0: 179704 in 2 places, all below massif's threshold (1.00%)
+   n1: 6267008 0x7E34EEB: av_frame_get_buffer (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n1: 6267008 0x48ECFF0: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+     n1: 6267008 0x48ED1CD: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6267008 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6267008 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6267008 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6267008 0x10DADF: main (detect-camera.cpp:84)
+   n0: 181247 in 3 places, all below massif's threshold (1.00%)
+  n3: 4683706 0x7E4A3B1: av_mallocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1742553 in 66 places, all below massif's threshold (1.00%)
+   n1: 1603008 0x694EC60: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1603008 0x6942439: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1202256 0x6946536: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1202256 0x6BF1E26: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 1202256 0x682B092: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 1202256 0x682BAB7: avcodec_send_packet (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 1202256 0x682E142: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 1202256 0x48ED9DF: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+           n1: 1202256 0x48ACBE1: cv::VideoCapture::grab() (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+            n1: 1202256 0x48AC7B0: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+             n1: 1202256 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+              n0: 1202256 0x10DADF: main (detect-camera.cpp:84)
+     n0: 400752 in 1 place, below massif's threshold (1.00%)
+   n2: 1338145 0x68FB706: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1338145 0x694D6FF: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1338145 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1338145 0x6393608: start_thread (pthread_create.c:477)
+       n0: 1338145 0x5128292: clone (clone.S:95)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+  n1: 1145104 0x7E4ADB2: av_fast_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1145104 in 2 places, all below massif's threshold (1.00%)
+  n0: 770106 in 36 places, all below massif's threshold (1.00%)
+ n1: 14006072 0x10FB8F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 14006072 0x1138E5: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n3: 13776456 0x112ED7: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 11164728 0x110B12: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n2: 9075504 0x110C70: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n2: 8356104 0x110D34: convolution4layerUnit(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:521)
+       n1: 8356104 0x118D1A: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:115)
+        n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+         n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+       n0: 0 in 4 places, all below massif's threshold (1.00%)
+      n0: 719400 in 17 places, all below massif's threshold (1.00%)
+     n2: 2089224 0x110C58: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n1: 2089224 0x1190EE: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:153)
+       n1: 2089224 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 2089224 0x10DB75: main (detect-camera.cpp:99)
+      n0: 0 in 17 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 2089224 0x1108FE: elementAdd(CDataBlob<float> const&, CDataBlob<float> const&) (facedetectcnn.cpp:467)
+     n1: 2089224 0x11908D: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:148)
+      n1: 2089224 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 2089224 0x10DB75: main (detect-camera.cpp:99)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 522504 in 6 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 12441744 0x496F2A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 12441744 0x4A7A330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 12441744 0x4AD0CB0: cv::_OutputArray::create(int, int, int, int, bool, cv::_OutputArray::DepthMask) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+    n2: 12441744 0x49D5919: cv::Mat::copyTo(cv::_OutputArray const&) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+     n1: 6220872 0x10E19D: cv::Mat::clone() const (mat.inl.hpp:811)
+      n0: 6220872 0x10DB06: main (detect-camera.cpp:88)
+     n1: 6220872 0x48ED321: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6220872 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6220872 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6220872 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6220872 0x10DADF: main (detect-camera.cpp:84)
+ n0: 1818560 in 529 places, all below massif's threshold (1.00%)
+ n1: 1650720 0xF0E8734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0xF0E6FAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF0001AE: ???
+           n0: 1650720 0x1FFF0001BE: ???
+ n1: 1547816 0xF0E8E53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0xF0E6FB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF0001AE: ???
+           n0: 1547816 0x1FFF0001BE: ???
+#-----------
+snapshot=72
+#-----------
+time=1266512181807
+mem_heap_B=83665687
+mem_heap_extra_B=1019473
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=73
+#-----------
+time=1266799972061
+mem_heap_B=85754911
+mem_heap_extra_B=1019489
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=1267087761333
+mem_heap_B=82230055
+mem_heap_extra_B=1019505
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=1267375550380
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3584
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=1267663340413
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=1267951130074
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=1268238919834
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=1268526709594
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=1268814499255
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=1269102289015
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=detailed
+n6: 90716983 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 52200775 0x7E49FFC: av_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+  n3: 45601859 0x7E283AC: av_buffer_alloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n2: 39153604 0x7E28431: av_buffer_allocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n3: 38973900 0x7E28BBC: av_buffer_pool_get (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+     n1: 25115496 0x682D1AB: avcodec_default_get_buffer2 (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n2: 25115496 0x682DA4A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 25115496 0x6BF37BD: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 25115496 0x694427F: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 25115496 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 25115496 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+           n1: 25115496 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+            n1: 25115496 0x6393608: start_thread (pthread_create.c:477)
+             n0: 25115496 0x5128292: clone (clone.S:95)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 12560256 0x6944346: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 12560256 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n2: 12560256 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 12560256 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 12560256 0x6393608: start_thread (pthread_create.c:477)
+          n0: 12560256 0x5128292: clone (clone.S:95)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 1298148 in 3 places, all below massif's threshold (1.00%)
+    n0: 179704 in 2 places, all below massif's threshold (1.00%)
+   n1: 6267008 0x7E34EEB: av_frame_get_buffer (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n1: 6267008 0x48ECFF0: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+     n1: 6267008 0x48ED1CD: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6267008 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6267008 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6267008 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6267008 0x10DADF: main (detect-camera.cpp:84)
+   n0: 181247 in 3 places, all below massif's threshold (1.00%)
+  n3: 4683706 0x7E4A3B1: av_mallocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1742553 in 66 places, all below massif's threshold (1.00%)
+   n1: 1603008 0x694EC60: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1603008 0x6942439: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1202256 0x6946536: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1202256 0x6BF1E26: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 1202256 0x682B092: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 1202256 0x682BAB7: avcodec_send_packet (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 1202256 0x682E142: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 1202256 0x48ED9DF: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+           n1: 1202256 0x48ACBE1: cv::VideoCapture::grab() (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+            n1: 1202256 0x48AC7B0: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+             n1: 1202256 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+              n0: 1202256 0x10DADF: main (detect-camera.cpp:84)
+     n0: 400752 in 1 place, below massif's threshold (1.00%)
+   n2: 1338145 0x68FB706: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1338145 0x694D6FF: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1338145 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1338145 0x6393608: start_thread (pthread_create.c:477)
+       n0: 1338145 0x5128292: clone (clone.S:95)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+  n1: 1145104 0x7E4ADB2: av_fast_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1145104 in 2 places, all below massif's threshold (1.00%)
+  n0: 770106 in 36 places, all below massif's threshold (1.00%)
+ n1: 21057368 0x10FB8F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 21057368 0x1138E5: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n3: 20827752 0x112ED7: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 11949144 0x110B12: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n2: 8356104 0x110C58: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n1: 8356104 0x119305: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:167)
+       n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+      n0: 0 in 17 places, all below massif's threshold (1.00%)
+     n2: 3593040 0x110C70: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n1: 2089224 0x1190EE: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:153)
+       n1: 2089224 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 2089224 0x10DB75: main (detect-camera.cpp:99)
+      n0: 1503816 in 17 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n2: 8356104 0x1108FE: elementAdd(CDataBlob<float> const&, CDataBlob<float> const&) (facedetectcnn.cpp:467)
+     n1: 8356104 0x1192A4: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:162)
+      n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+       n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 522504 in 6 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 12441744 0x496F2A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 12441744 0x4A7A330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 12441744 0x4AD0CB0: cv::_OutputArray::create(int, int, int, int, bool, cv::_OutputArray::DepthMask) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+    n2: 12441744 0x49D5919: cv::Mat::copyTo(cv::_OutputArray const&) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+     n1: 6220872 0x10E19D: cv::Mat::clone() const (mat.inl.hpp:811)
+      n0: 6220872 0x10DB06: main (detect-camera.cpp:88)
+     n1: 6220872 0x48ED321: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6220872 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6220872 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6220872 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6220872 0x10DADF: main (detect-camera.cpp:84)
+ n0: 1818560 in 529 places, all below massif's threshold (1.00%)
+ n1: 1650720 0xF0E8734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0xF0E6FAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF0001AE: ???
+           n0: 1650720 0x1FFF0001BE: ???
+ n1: 1547816 0xF0E8E53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0xF0E6FB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF0001AE: ???
+           n0: 1547816 0x1FFF0001BE: ???
+#-----------
+snapshot=82
+#-----------
+time=1269390078775
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=1269677868535
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=1269965658196
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=1270253447945
+mem_heap_B=90716983
+mem_heap_extra_B=1023297
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=86
+#-----------
+time=1270541237997
+mem_heap_B=99073087
+mem_heap_extra_B=1027073
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=1270829028892
+mem_heap_B=99073087
+mem_heap_extra_B=1027073
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=1271116819797
+mem_heap_B=99073087
+mem_heap_extra_B=1027073
+mem_stacks_B=3800
+heap_tree=empty
+#-----------
+snapshot=89
+#-----------
+time=1271404608840
+mem_heap_B=83405887
+mem_heap_extra_B=1019553
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=90
+#-----------
+time=1271692397877
+mem_heap_B=84972871
+mem_heap_extra_B=1019569
+mem_stacks_B=3784
+heap_tree=empty
+#-----------
+snapshot=91
+#-----------
+time=1271980188096
+mem_heap_B=84972871
+mem_heap_extra_B=1019569
+mem_stacks_B=3784
+heap_tree=detailed
+n6: 84972871 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n4: 52200775 0x7E49FFC: av_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+  n3: 45601859 0x7E283AC: av_buffer_alloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n2: 39153604 0x7E28431: av_buffer_allocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n3: 38973900 0x7E28BBC: av_buffer_pool_get (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+     n1: 25115496 0x682D1AB: avcodec_default_get_buffer2 (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n2: 25115496 0x682DA4A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 25115496 0x6BF37BD: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 25115496 0x694427F: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 25115496 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 25115496 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+           n1: 25115496 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+            n1: 25115496 0x6393608: start_thread (pthread_create.c:477)
+             n0: 25115496 0x5128292: clone (clone.S:95)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+     n1: 12560256 0x6944346: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 12560256 0x6948757: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n2: 12560256 0x694D957: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 12560256 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 12560256 0x6393608: start_thread (pthread_create.c:477)
+          n0: 12560256 0x5128292: clone (clone.S:95)
+        n0: 0 in 1 place, below massif's threshold (1.00%)
+     n0: 1298148 in 3 places, all below massif's threshold (1.00%)
+    n0: 179704 in 2 places, all below massif's threshold (1.00%)
+   n1: 6267008 0x7E34EEB: av_frame_get_buffer (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+    n1: 6267008 0x48ECFF0: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+     n1: 6267008 0x48ED1CD: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6267008 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6267008 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6267008 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6267008 0x10DADF: main (detect-camera.cpp:84)
+   n0: 181247 in 3 places, all below massif's threshold (1.00%)
+  n3: 4683706 0x7E4A3B1: av_mallocz (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1742553 in 66 places, all below massif's threshold (1.00%)
+   n1: 1603008 0x694EC60: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1603008 0x6942439: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1202256 0x6946536: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1202256 0x6BF1E26: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+       n1: 1202256 0x682B092: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+        n1: 1202256 0x682BAB7: avcodec_send_packet (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+         n1: 1202256 0x682E142: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+          n1: 1202256 0x48ED9DF: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+           n1: 1202256 0x48ACBE1: cv::VideoCapture::grab() (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+            n1: 1202256 0x48AC7B0: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+             n1: 1202256 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+              n0: 1202256 0x10DADF: main (detect-camera.cpp:84)
+     n0: 400752 in 1 place, below massif's threshold (1.00%)
+   n2: 1338145 0x68FB706: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+    n2: 1338145 0x694D6FF: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+     n1: 1338145 0x6BF284A: ??? (in /usr/lib/x86_64-linux-gnu/libavcodec.so.58.54.100)
+      n1: 1338145 0x6393608: start_thread (pthread_create.c:477)
+       n0: 1338145 0x5128292: clone (clone.S:95)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 0 in 1 place, below massif's threshold (1.00%)
+  n1: 1145104 0x7E4ADB2: av_fast_malloc (in /usr/lib/x86_64-linux-gnu/libavutil.so.56.31.100)
+   n0: 1145104 in 2 places, all below massif's threshold (1.00%)
+  n0: 770106 in 36 places, all below massif's threshold (1.00%)
+ n1: 15313256 0x10FB8F: myAlloc(unsigned long) (facedetectcnn.cpp:57)
+  n2: 15313256 0x1138E5: CDataBlob<float>::create(int, int, int) (facedetectcnn.h:209)
+   n2: 15083640 0x112ED7: CDataBlob<float>::CDataBlob(int, int, int) (facedetectcnn.h:152)
+    n3: 14561136 0x110B12: convolution(CDataBlob<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:491)
+     n3: 12994152 0x110C70: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:512)
+      n1: 8356104 0x119305: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:167)
+       n1: 8356104 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 8356104 0x10DB75: main (detect-camera.cpp:99)
+      n0: 2548824 in 16 places, all below massif's threshold (1.00%)
+      n1: 2089224 0x1190EE: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:153)
+       n1: 2089224 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 2089224 0x10DB75: main (detect-camera.cpp:99)
+     n2: 1566984 0x110C58: convolutionDP(CDataBlob<float> const&, Filters<float> const&, Filters<float> const&, bool) (facedetectcnn.cpp:511)
+      n1: 1566984 0x1193FB: objectdetect_cnn(unsigned char*, int, int, int) (facedetectcnn-model.cpp:170)
+       n1: 1566984 0x11A03A: facedetect_cnn(unsigned char*, unsigned char*, int, int, int) (facedetectcnn-model.cpp:222)
+        n0: 1566984 0x10DB75: main (detect-camera.cpp:99)
+      n0: 0 in 17 places, all below massif's threshold (1.00%)
+     n0: 0 in 1 place, below massif's threshold (1.00%)
+    n0: 522504 in 7 places, all below massif's threshold (1.00%)
+   n0: 229616 in 3 places, all below massif's threshold (1.00%)
+ n1: 12441744 0x496F2A8: cv::fastMalloc(unsigned long) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+  n1: 12441744 0x4A7A330: cv::Mat::create(int, int const*, int) (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+   n1: 12441744 0x4AD0CB0: cv::_OutputArray::create(int, int, int, int, bool, cv::_OutputArray::DepthMask) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+    n2: 12441744 0x49D5919: cv::Mat::copyTo(cv::_OutputArray const&) const (in /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0)
+     n1: 6220872 0x10E19D: cv::Mat::clone() const (mat.inl.hpp:811)
+      n0: 6220872 0x10DB06: main (detect-camera.cpp:88)
+     n1: 6220872 0x48ED321: ??? (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+      n1: 6220872 0x48ADC67: cv::VideoCapture::retrieve(cv::_OutputArray const&, int) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+       n1: 6220872 0x48AC7C3: cv::VideoCapture::read(cv::_OutputArray const&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+        n1: 6220872 0x48AC52A: cv::VideoCapture::operator>>(cv::Mat&) (in /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.4.2.0)
+         n0: 6220872 0x10DADF: main (detect-camera.cpp:84)
+ n0: 1818560 in 529 places, all below massif's threshold (1.00%)
+ n1: 1650720 0xF0E8734: gdcm::Dict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1650720 0xF0E6FAC: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1650720 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1650720 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1650720 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1650720 0x4011C90: call_init (dl-init.c:30)
+       n1: 1650720 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1650720 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1650720 0x1: ???
+          n1: 1650720 0x1FFF0001AE: ???
+           n0: 1650720 0x1FFF0001BE: ???
+ n1: 1547816 0xF0E8E53: gdcm::PrivateDict::LoadDefault() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+  n1: 1547816 0xF0E6FB5: gdcm::Dicts::LoadDefaults() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+   n1: 1547816 0xF0EA7C8: gdcm::Global::Global() (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+    n1: 1547816 0xF0E6D03: ??? (in /usr/lib/x86_64-linux-gnu/libgdcmDICT.so.3.0.5)
+     n1: 1547816 0x4011B89: call_init.part.0 (dl-init.c:72)
+      n1: 1547816 0x4011C90: call_init (dl-init.c:30)
+       n1: 1547816 0x4011C90: _dl_init (dl-init.c:119)
+        n1: 1547816 0x4001139: ??? (in /lib/x86_64-linux-gnu/ld-2.31.so)
+         n1: 1547816 0x1: ???
+          n1: 1547816 0x1FFF0001AE: ???
+           n0: 1547816 0x1FFF0001BE: ???
+#-----------
+snapshot=92
+#-----------
+time=1272267977143
+mem_heap_B=86017879
+mem_heap_extra_B=1019601
+mem_stacks_B=3800
+heap_tree=empty

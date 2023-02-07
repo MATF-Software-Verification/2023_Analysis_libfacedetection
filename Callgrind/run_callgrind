@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -xe;
+
+./../TestSamples/build CFLAGS="-DPROFILING"
+
+valgrind --tool=callgrind --callgrind-out-file='detect-image-callgrind' ./detect-image ../TestSamples/image-test.jpg
+
+valgrind --tool=callgrind --callgrind-out-file='detect-camera-callgrind' ./detect-camera 0
+
+#kcachegrind detect-image-callgrind
+#kcachegrind detect-camera-callgrind
+

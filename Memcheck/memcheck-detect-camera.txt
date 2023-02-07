@@ -1,0 +1,6 @@
+==3009== Memcheck, a memory error detector
+==3009== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3009== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==3009== Command: ./detect-camera 0
+==3009== Parent PID: 1959
+==3009== 

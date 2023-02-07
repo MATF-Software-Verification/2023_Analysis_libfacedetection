@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -xe;
+
+./../TestSamples/build CFLAGS="--coverage"
+
+./detect-image ../TestSamples/image-test.jpg
+
+./detect-camera 0
+
+lcov --rc lcov_branch_coverage=1 -c -d . -o coverage-detect.info
+
+lcov --rc lcov_branch_coverage=1 --r coverage-detect.info '/usr/*' '9*'-o coverage-detect-filtered.info
+
+genhtml --rc lcov_branch_coverage=1 -o Reports coverage-detect-filtered.info
+
+firefox Reports/index.html

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -xe;
+
+# Ne testiramo originalni projekat, vec izmenjeni, bez opencv funkcija.
+./../TestSamples/build CFLAGS="-DPROFILING"
+
+# Pokretanje Massifa za detect-camera
+valgrind --tool=massif --stacks=yes --massif-out-file="massif-detect-image.txt" ./detect-image ../TestSamples/image-test.jpg
+
+valgrind --tool=massif --stacks=yes --massif-out-file="massif-detect-camera.txt" ./detect-camera 0
+
+#za Pokretanje massif-visualizera otkomentarisati naredne linije:
+massif-visualizer massif-detect-image.txt
+massif-visualizer massif-detect-camera.txt

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -xe;
+
+cd ../libfacedetection
+
+if [ -d "build" ] 
+then
+	rm -r build
+fi
+
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Debug -DDEMO=OFF
+cmake --build . --config Debug
+cmake --build . --config Debug --target install
+
+cp facedetection_export.h ../src/facedetection_export.h
+cp facedetection_export.h ../example/facedetection_export.h
+cp ../src/facedetectcnn.h ../example/facedetectcnn.h

@@ -1,0 +1,9 @@
+PROGRAM = test-alloc
+CXX       = g++
+CXXFLAGS  = -g -O0 -std=c++17 -Wall
+
+$(PROGRAM):  test-alloc.cpp ../libfacedetection/src/facedetectcnn.cpp 
+	$(CXX) $(CXXFLAGS) -o $(PROGRAM) $^
+	
+clean:
+	-rm  $(PROGRAM)
