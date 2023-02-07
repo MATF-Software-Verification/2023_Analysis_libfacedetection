@@ -2,3 +2,4 @@
 *.gcno
 detect-image
 detect-camera
+test-alloc
