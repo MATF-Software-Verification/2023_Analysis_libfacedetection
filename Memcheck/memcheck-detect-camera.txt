@@ -4,3 +4,20 @@
 ==3009== Command: ./detect-camera 0
 ==3009== Parent PID: 1959
 ==3009== 
+==3009== 
+==3009== HEAP SUMMARY:
+==3009==     in use at exit: 553,844 bytes in 4,473 blocks
+==3009==   total heap usage: 116,410 allocs, 111,937 frees, 11,181,416,450 bytes allocated
+==3009== 
+==3009== LEAK SUMMARY:
+==3009==    definitely lost: 0 bytes in 0 blocks
+==3009==    indirectly lost: 0 bytes in 0 blocks
+==3009==      possibly lost: 1,352 bytes in 18 blocks
+==3009==    still reachable: 552,492 bytes in 4,455 blocks
+==3009==                       of which reachable via heuristic:
+==3009==                         newarray           : 1,536 bytes in 16 blocks
+==3009==         suppressed: 0 bytes in 0 blocks
+==3009== Rerun with --leak-check=full to see details of leaked memory
+==3009== 
+==3009== For lists of detected and suppressed errors, rerun with: -s
+==3009== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
