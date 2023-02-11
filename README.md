@@ -15,3 +15,5 @@ Primena alata će biti izvršena na main grani, nad komitom čiji je hash code s
 Na osnovu analize projekta zaključujemo da biblioteka nema većih propusta. 
 Dinamička analiza nije pronašla propuste, dok je statička analiza ukazala na curenje memorije i nekorišćene promenljive.
 
+# Autor:
+Marija Erić 1033/2021
